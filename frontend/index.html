@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Real-Time Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Экран входа -->
+        <div id="login-screen">
+            <h2>Вход в чат</h2>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Логин" value="test">
+                <input type="password" id="password" placeholder="Пароль" value="test">
+            </div>
+            <div class="button-group">
+                <button onclick="login()">Войти</button>
+                <button onclick="register()">Регистрация</button>
+            </div>
+            <div id="login-message" class="message"></div>
+        </div>
+
+        <!-- Экран чата (изначально скрыт) -->
+        <div id="chat-screen" style="display:none">
+            <h2>Чат: <span id="current-user"></span></h2>
+            
+            <div id="messages-container">
+                <div id="messages"></div>
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="message-input" placeholder="Введите сообщение..." 
+                       onkeypress="if(event.key=='Enter') sendMessage()">
+                <button onclick="sendMessage()">Отправить</button>
+            </div>
+
+            <div class="button-group">
+                <button onclick="logout()">Выйти</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
