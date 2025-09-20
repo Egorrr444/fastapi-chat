@@ -23,7 +23,7 @@ class UserResponse(UserBase):
 
 
     class Config:
-         orm_mode = True
+         from_attributes = True
 
 
 
@@ -36,11 +36,12 @@ class MessageCreate(MessageBase):
 class MessageResponse(MessageBase):
     id: int
     user_id: int
+    username: str 
     created_at: datetime
     user: UserResponse
     
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 # Схема для токена
 class Token(BaseModel):
